@@ -15,7 +15,7 @@ npm run build
 ```
 
 
- # Curso Vue JS
+ ## Conceitos estudados: Curso Vue JS - SPA
  
 ### Instalando o CLI -Command Line Interface do Vue
 ```
@@ -62,7 +62,7 @@ new Vue({
 A propriedade *el* recebe como parâmetro o seletor do elemento que será substituído pelo componente, já na função *render* passa-se o componente que se deseja renderizar.
 
 ### Interpolação e data binding
-O resultado da sintaxe especial {{ }} com o nome da propriedade que se deseja ler é chamada de *interpolação*. Diz-se que o dado foi *interpolado no template*. Por fim, essa interpolação segue uma regra: os dados fluem sempre da sua origem para o template e nunca o caminho contrário.Tecnicamente falando, o que a interpolação faz é uma associação de dados unidirecional chamada *data binding*. Aliás, uma característica dessa associação é que qualquer mudança no dado gera automaticamente uma atualização no template do componente. 
+O resultado da sintaxe especial {{ }} com o nome da propriedade que se deseja ler é chamada de *interpolação*. Diz-se que o dado foi *interpolado no template*. Por fim, essa interpolação segue uma regra: os dados fluem sempre da sua origem para o template e nunca o caminho contrário.Tecnicamente falando, o que a interpolação faz é uma associação de dados unidirecional chamada **data binding**. Aliás, uma característica dessa associação é que **qualquer mudança no dado gera automaticamente uma atualização no template do componente.** 
 
 ### Live reloading
 Qualquer alteração feita nos arquivos do projeto gerará um novo bundle em memória, e fará com que o navegador recarregue automaticamente para refletir as últimas alterações. Isso só é possível porque o servidor criado pelo Vue CLI suporta *LiveReloading*.
@@ -87,15 +87,14 @@ export default {
 </style>
 ```
 
-### Data binding unidirecional através de interpolação
-Não se pode usar interpolação em atributos. É necessário fazer de outra maneira, aliás essa maneira possui duas formas. A primeira é usarmos *v-bind:*.
-Usando a sintaxe *v-bind:nomeDoAtributo*. O valor é atribuído diretamente, sem { {}} como *v-bind:src="foto.url"*. É o Vue que fará a interpolação por debaixo dos panos.
+### Data binding interpolação em atributos
+Não se pode usar interpolação em atributos. É necessário fazer de outra maneira, usando a sintaxe *v-bind:nomeDoAtributo*. O valor é atribuído diretamente, sem **{{}}** como *v-bind:src="foto.url"*. É o Vue que fará a interpolação por debaixo dos panos.
 
 ### A diretiva v-bind
 O tópico acima é o uso de uma diretiva do Vue. Diretivas nada mais são do que um código interpretado pelo Vue que encapsula determinada funcionalidade ensinando novos truques para o navegador. Tanto isso é verdade que no mundo HTML não existe *v-bind*, logo, esta diretiva esta sendo interpretada pelo Vue.
 
 ### Um atalho elegante para v-bind
-No entanto, pode parecer um tanto verboso usar a sintaxe *v-bind* para realizar uma associação unidirecional que vai da fonte de dados para a view. Nesse caso pode+se trocar *v-bind* pelo seu atalho *dois pontos:*.
+No entanto, pode parecer um tanto verboso usar a sintaxe *v-bind* para realizar uma associação unidirecional que vai da fonte de dados para a view. Nesse caso pode-se trocar *v-bind* pelo seu atalho *dois pontos:*.
 ```
     <img :src="foto.url" :alt="foto.titulo">
 ```
@@ -133,8 +132,8 @@ new Vue({
  Todo componente em Vue é uma unidade de código que pode encapsular sua marcação, estilo e comportamento, este último, ações que podem ser realizadas com ele. Um *shared component* é aquele reutilizável por outros componentes da aplicação. Aquele que, por convenção, pode fazer parte da pasta components/shared, apesar disso não ser uma regra.
 
  ### Propriedade props
-Na parte scripts, tem-se a propriedade props. Nela é possível passar uma lista de propriedades que podem ser recebidas pelo componente. Essas propriedades podem ser acessadas no template do componente através de interpolação. 
-Dentro da tag que representa o título do componente, usa-se {{ titulo }}.
+Na parte scripts, tem-se a propriedade **props**. Nela é possível passar uma lista de propriedades que podem ser recebidas pelo componente. Essas propriedades podem ser acessadas no template do componente através de interpolação. 
+Dentro da tag que representa o título do componente, usa-se **{{ titulo }}**.
 ```
 <script>
 export default {
@@ -146,7 +145,7 @@ export default {
 Com essa última alteração, nada será exibido no navegador. Isto porque é necessário importar o componente criado em App.vue para poder utilizá-lo:
 
 ### Components
-Importar o com Painel ainda não é suficiente. Precisa-se indicar em App.vue como será referenciado o componente em seu template. Pode-se escolher qualquer nome, no caso, no código abaixo será meu-painel. É através da propriedade components que associa-se o nome meu-painel ao componente:
+Só importar o componente não é suficiente. Precisa-se indicar em App.vue como será referenciado o componente em seu template. Pode-se escolher qualquer nome, no caso, no código abaixo será *meu-painel*. É através da propriedade components que associa-se o nome *meu-painel* ao componente:
 ```
 <script>
 import Painel from './components/shared/painel/Painel.vue'
@@ -161,7 +160,7 @@ export default {
 *código omitido*
 ```
 ### Slot
-Quando o Vue renderiza o componente Painel em App, ele não entende que deve preservar tudo aquilo que esta entre as tags *<meu-painel>*. O Vue manipula aquela parte do DOM trocando-a pela renderização do componente Painel. Para que isso seja possível, precisa-se indicar no template de Painel a área que quer-se considerar como um *slot*, ou seja, aquela área que recebera tudo aquilo que tiver dentro da tag *<meu-painel>*. Para isso, altera-se o template *src/components/shared/painel/Painel.vue* e trocar a *div* conteúdo pelo componente *slot*. O componente final fica assim:
+Quando o Vue renderiza o componente *Painel* em App, ele não entende que deve preservar tudo aquilo que esta entre as tags *<meu-painel>*. O Vue manipula aquela parte do DOM trocando-a pela renderização do componente *Painel*. Para que isso seja possível, precisa-se indicar no template de Painel a área que quer-se considerar como um *slot*, ou seja, aquela área que recebera tudo aquilo que tiver dentro da tag *<meu-painel>*. Para isso, altera-se o template *src/components/shared/painel/Painel.vue* e trocar a *div* conteúdo pelo componente *slot*. O componente final fica assim:
 ```
 <template>
   <div class="painel">
@@ -193,7 +192,9 @@ Cada dígito no local da interpolação será exibido o valor digitado no *input
 
 **Faz-se necessário adicionar no objeto retornado pela função data do componente a propriedade *filtro*.** </br>
 
-Por fim, vale ressaltar que *v-on* realiza um data binding unidirecional que flui da view para os dados e a interpolação ou *v-bind* realiza uma associação unidirecional que flui dos dados para view.
+Por fim, vale ressaltar que:
+- [x] *v-on* realiza um data binding unidirecional que flui da **view para os dados**;
+- [x] e a interpolação ou *v-bind* realiza uma associação unidirecional que flui dos **dados para view**.
 
 ### Computed property
  Sempre que tiver que realizar algum cálculo ou aplicar alguma lógica dinamicamente usa-se o *computed property*. Dentro da *computed property* pode-se acessar dados através de *this*. Isso é possível porque Vue internamente aplica sua mágica para que o *this* tenha acesso a todos as propriedade definidas na função *data*.
@@ -201,18 +202,18 @@ Por fim, vale ressaltar que *v-on* realiza um data binding unidirecional que flu
 
  ### A diretiva v-show
  Se quer esconder o conteúdo do painel, não removê-lo. Para isso há a diretiva *v-show*. Quando adicionada em um elemento, quando seu valor for *true*, o elemento será exibido, se for *false*, será ocultado. Por debaixo dos panos a diretiva realiza um *display: none*.
- **Não se pode usar a diretiva *v-show* diretamente na tag *slot*. É necessário envolvê-lo em uma tag *div* e nela usar a diretiva.
+ **Não se pode usar a diretiva *v-show* diretamente na tag *slot*. É necessário envolvê-lo em uma tag *div* e nela usar a diretiva.**
 
 ### Bind de eventos: v-on:dblclick
  Através da diretiva *v-on* pode-se executar um código a partir de um evento do JavaScript. Nesse caso, adiciona-se um *v-on:dblclick* para responder ao evento click na tag que representa a ação do click.
 
 ### Atalho para v-on
-Da mesma forma que se tem um atalho para *v-bind* (:), há um atalho para a diretiva *v-on*. No caso, basta adicionar o nome do evento com o prefixo **@**:
+Da mesma forma que se tem um atalho para *v-bind* (: dois pontos), há um atalho para a diretiva *v-on*. No caso, basta adicionar o nome do evento com o prefixo **@** (arroba):
 ```
   <h2 class="painel-titulo" @dblclick="visivel = !visivel">{{ titulo }}</h2>
 ```
 
-### componente transition
+### Componente transition
 O Vue precisa delimitar a área do template no qual fará a ação. Para realizar a transição no conteúdo, é necessário envolver a div com uma classe pelo componente *transition*. Obrigatoriamente precisa-se escolher um *name* para ele. </br>
 
 Em primeiro lugar, *transition* só pode ser usado com um elemento, se tentarmos colocar mais um elemento como filho do nosso wrapper receberemos um erro.
@@ -249,4 +250,56 @@ Exemplo:
 </style>
 ```
 
+### Single Page Applications
+Single Page Applications são páginas que não recarregam durante seu uso com experiência semelhante a um aplicativo. Neste tipo de aplicação carregamos apenas a página principal da aplicação, por exemplo, index.html. Depois que essa página é carregada, o desenvolvedor usurpa o controle do navegador e a busca de novas páginas deixa de ser feita pelo navegador e passam a ser feitas pelo JavaScript.
+
+Para se entender como uma página que nunca recarrega é capaz de exibir outras páginas é necessário entender o conceito de **rotas** e como implementá-la com Vue. 
+
+### VueRouter
+Se faz necessário separar a responsabilidade de *App* que será o ponto no qual será exibido os componentes *Home* e *Cadastro*. Então instala-se a infraestrutura necessária para que a magia do SPA aconteça. Por padrão o Vue não é capaz de resolver a questão que é o carregamento de um ou outro componente de acordo com uma rota específica, para isso, utiliza-se o módulo VueRouter.
+```
+npm install vue-router@2.1.1 --save
+```
+**As diretivas router-view e router-link são diretivas bastante utilizadas para ativar o sistema de rotas do VueRouter.**
+
+É uma boa prática declarar as rotas da aplicação em um arquivo em separado. . Nele exporta-se uma constante que é um array. No array *routes*, precisa-se ter um objeto Javascript com as propriedades **path** e ****component**. O primeiro é a caminho que identifica o componente, o segundo o componente que será carregado para este caminho presente na url do navegador:
+```
+export const routes = [
+    { path: '', component: Home },
+    { path: '/cadastro', component: Cadastro }
+];
+```
+
+Após cria-se uma instância de VueRouter no *main.js* passando como parâmetro um objeto JavaScript com a propriedade *routes* que deve receber como parâmetro as rotas importadas:
+```
+import Vue from 'vue'
+import App from './App.vue'
+import VueResource from 'vue-resource';
+import VueRouter from 'vue-router';
+
+import { routes } from './routes';
+
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+  routes : routes
+});
+
+Vue.use(VueResource);
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+})
+```
+Por fim, usa-se uma diretiva especial do VueRouter, uma que indica em que lugar do template de App os componentes serão carregados. Essa diretiva se chama **router-view**:
+```
+<template>
+  <div class="corpo">
+
+    <router-view></router-view>
+
+  </div>
+</template>
+```
 

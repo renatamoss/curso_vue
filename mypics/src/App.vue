@@ -1,73 +1,34 @@
 <template>
   <div class="corpo">
-    <h1 class="centralizado">{{ titulo }}</h1>
+   
+   <meu-menu :rotas='routes'>
+   </meu-menu>
 
-    <input
-      type="search"
-      class="filtro"
-      @input="filtro = $event.target.value"
-      placeholder="Filtre por parte do título"
-    />
+    <transition name="pagina">
+      <router-view></router-view>
+    </transition>
 
-    <ul class="lista-fotos">
-      <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
-        <meu-painel :titulo="foto.titulo">
-         <imagem-responsiva :url="foto.url" :titulo="foto.titulo">
-         </imagem-responsiva>
-        </meu-painel>
-      </li>
-    </ul>
   </div>
 </template>
 
 
 <script>
-import Painel from './components/shared/painel/Painel.vue';
-import ImagemResponsiva from './components/shared/imagem-responsiva/ImagemResponsiva.vue'
+import { routes } from './routes';
+import Menu from './components/shared/menu/Menu.vue'
 
 export default {
 
-  /*componente criado*/
-  components: {
-    'meu-painel': Painel,
-    'imagem-responsiva': ImagemResponsiva
-  },
+components: {
+  'meu-menu' : Menu
+},
 
-  /*função v-bind que leva dados para view*/
   data() {
     return {
-      titulo: "Mypics",
-      fotos: [],
-      filtro: ''
-    }
+      routes,
+    };
   },
+}
 
-/*método para filtrar*/
-  computed: {
-    fotosComFiltro() {
-
-      if(this.filtro) {
-        /*filtrar: trim: remove espaços - 'i': case sensitive*/
-        let exp = new RegExp(this.filtro.trim(), 'i');
-        return this.fotos.filter(foto => exp.test(foto.titulo));
-      } else {
-        return this.fotos;
-      }
-
-    }
-  },
-
-/*função para acessar API com fotos*/
-created() {
-    this.$http
-      .get("http://localhost:3000/v1/fotos")
-      .then((res) => res.json())
-      .then(
-        (fotos) => (this.fotos = fotos),
-        (err) => console.log(err)
-      );
-  },
-};
 </script>
 
 
@@ -78,17 +39,13 @@ created() {
   margin: 0 auto;
 }
 
-.centralizado {
-  text-align: center;
+/*animação transition*/
+.pagina-enter, .pagina-leave-active {
+  opacity: 0
 }
 
-.lista-fotos {
-  list-style: none;
+.pagina-enter-active, .pagina-leave-active {
+  transition: opacity .4s
 }
-
-.lista-fotos-item {
-  display: inline-block;
-}
-
 
 </style>
