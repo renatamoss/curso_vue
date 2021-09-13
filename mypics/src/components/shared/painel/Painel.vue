@@ -7,7 +7,6 @@
         <slot></slot>
       </div>
     </transition>
-    
   </div>
 </template>
 
@@ -17,7 +16,7 @@ export default {
 
   data() {
     return {
-      visivel: false,
+      visivel: true,
     };
   },
 };
@@ -51,11 +50,13 @@ export default {
 }
 
 /*animação transition*/
-.painel-fade-enter, .painel-fade-leave-active {
-  opacity: 0
+.painel-fade-enter,
+.painel-fade-leave-active {
+  opacity: 0;
 }
 
-.painel-fade-enter-active, .painel-fade-leave-active {
-  transition: opacity .4s
+.painel-fade-enter-active,
+.painel-fade-leave-active {
+  transition: opacity 0.4s;
 }
 </style>

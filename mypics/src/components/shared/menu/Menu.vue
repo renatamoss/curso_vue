@@ -1,36 +1,29 @@
 <template>
-    
- <nav>
-      <ul>
-        <li v-for="rota in rotas">
-          <router-link :to="rota.path ? rota.path : '/'">{{
-            rota.titulo
-          }}</router-link>
-        </li>
-      </ul>
-    </nav>
-
+  <nav>
+    <ul>
+      <li v-for="rota in rotas">
+        <router-link :to="rota.path ? rota.path : '/'">{{
+          rota.titulo
+        }}</router-link>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 
 <script>
-
 export default {
+  props: ["rotas"],
 
-    props: ['rotas']
-
-    /*colocando uma validação na props:
+  /*colocando uma validação na props:
         props: {
         rotas: {
             type: Array, 
             required: true
         }*/
-}
-
-
+};
 </script>
 
 
 <style>
-
 </style>
