@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1 class="centralizado">{{ titulo }}</h1>
+    <p v-show="mensagem" class="centralizado">{{ mensagem }}</p>
 
     <input
       type="search"
@@ -14,14 +15,19 @@
         <meu-painel :titulo="foto.titulo">
           <imagem-responsiva :url="foto.url" :titulo="foto.titulo" />
 
+          <router-link :to="{ name: 'cadastro'}">
+          <meu-botao tipo="button" rotulo="ALTERAR" estilo="padrao" />
+          </router-link>
+
           <meu-botao
             tipo="button"
             rotulo="REMOVER"
             @botaoAtivado="remove(foto, $event)"
             :confirmacao="true"
-            estilo="padrao"/> 
-          
+            estilo="perigo"
+          />
         </meu-painel>
+        
       </li>
     </ul>
   </div>
@@ -47,6 +53,7 @@ export default {
       titulo: "Mypics",
       fotos: [],
       filtro: "",
+      mensagem: "",
     };
   },
 
@@ -65,15 +72,25 @@ export default {
 
   /*método botão remover*/
   methods: {
-    remove(foto, $event) {
-      alert("Remover a foto: " + foto.titulo + " em " + $event);
+    remove(foto) {
+      this.$http.delete(`v1/fotos/${foto._id}`).then(
+        () => {
+          let indice = this.fotos.indexOf(foto);
+          this.fotos.splice(indice, 1);
+          this.mensagem = "Foto removida com sucesso";
+        },
+        (err) => {
+          this.mensagem = "Não foi possível remover a foto";
+          console.log(err);
+        }
+      );
     },
   },
 
   /*função para acessar API com fotos*/
   created() {
     this.$http
-      .get("http://localhost:3000/v1/fotos")
+      .get("v1/fotos")
       .then((res) => res.json())
       .then(
         (fotos) => (this.fotos = fotos),
