@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import VeeValidate from 'vee-validate';
 
 // módulo que integra uma aplicação com uma API - 
 // npm install vue-resource@1.0.3 --save
@@ -24,7 +25,7 @@ const router = new VueRouter({
   mode: 'history' /*para elimitar a # do endereço do servidor*/
 });
 
-
+Vue.use(VeeValidate);
 
 new Vue({
   el: '#app',

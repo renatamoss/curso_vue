@@ -9,12 +9,30 @@
     <form @submit.prevent="grava()">
       <div class="controle">
         <label for="titulo">TÍTULO</label>
-        <input v-model.lazy="foto.titulo" id="titulo" autocomplete="off" />
+        <input
+          name="titulo"
+          v-validate
+          data-vv-rules="required|min:3|max:30"
+          v-model="foto.titulo"
+          id="titulo"
+          autocomplete="off"
+        />
+        <span v-show="errors.has('titulo')" class="erro"
+          >Título obrigatório, no mínimo 3 e máximo 30 caracteres.</span
+        >
       </div>
 
       <div class="controle">
         <label for="url">URL</label>
-        <input v-model.lazy="foto.url" id="url" autocomplete="off" />
+        <input
+          name="url"
+          v-validate
+          data-vv-rules="required"
+          v-model="foto.url"
+          id="url"
+          autocomplete="off"
+        />
+        <span v-show="errors.has('url')" class="erro">URL obrigatório</span>
         <imagem-responsiva
           v-show="foto.url"
           :url="foto.url"
@@ -56,21 +74,23 @@ export default {
   data() {
     return {
       foto: new Foto(),
-      id: this.$route.params.id
+      id: this.$route.params.id,
     };
   },
 
   methods: {
     grava() {
-      this.service
-        .cadastra(this.foto)
-        .then(() => {
-          if(this.id) this.$router.push({ name: 'home'});
-          this.foto = new Foto()
-        }, 
-        err => console.log(err));
-
-    
+      this.$validator.validateAll().then((success) => {
+        if (success) {
+          this.service.cadastra(this.foto).then(
+            () => {
+              if (this.id) this.$router.push({ name: "home" });
+              this.foto = new Foto();
+            },
+            (err) => console.log(err)
+          );
+        }
+      });
     },
   },
 
@@ -78,9 +98,7 @@ export default {
     this.service = new FotoService(this.$resource);
 
     if (this.id) {
-      this.service
-      .busca(this.id)
-      .then(foto => this.foto = foto)
+      this.service.busca(this.id).then((foto) => (this.foto = foto));
     }
   },
 };
@@ -109,5 +127,8 @@ export default {
 
 .centralizado {
   text-align: center;
+}
+.erro {
+  color: red;
 }
 </style>
