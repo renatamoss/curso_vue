@@ -15,8 +15,8 @@
         <meu-painel :titulo="foto.titulo">
           <imagem-responsiva :url="foto.url" :titulo="foto.titulo" />
 
-          <router-link :to="{ name: 'cadastro'}">
-          <meu-botao tipo="button" rotulo="ALTERAR" estilo="padrao" />
+          <router-link :to="{ name: 'altera', params: { id: foto._id } }">
+            <meu-botao tipo="button" rotulo="ALTERAR" estilo="padrao" />
           </router-link>
 
           <meu-botao
@@ -27,7 +27,6 @@
             estilo="perigo"
           />
         </meu-painel>
-        
       </li>
     </ul>
   </div>
@@ -38,6 +37,7 @@
 import Painel from "../shared/painel/Painel.vue";
 import ImagemResponsiva from "../shared/imagem-responsiva/ImagemResponsiva.vue";
 import Botao from "../shared/botao/Botao.vue";
+import FotoService from "../../domain/FotoService/FotoService.js";
 
 export default {
   /*componente criado*/
@@ -73,30 +73,30 @@ export default {
   /*método botão remover*/
   methods: {
     remove(foto) {
-      this.$http.delete(`v1/fotos/${foto._id}`).then(
+      this.service.apaga(foto._id).then(
+        //function 1: foto removida com sucesso
         () => {
-          let indice = this.fotos.indexOf(foto);
-          this.fotos.splice(indice, 1);
+          let indice = this.fotos.indexOf(foto); //pegando a posição da foto no array
+          this.fotos.splice(indice, 1); //removendo o item do array
           this.mensagem = "Foto removida com sucesso";
         },
+        //function 2: erro
         (err) => {
-          this.mensagem = "Não foi possível remover a foto";
-          console.log(err);
+          this.mensagem = err.message;
+          
         }
       );
     },
   },
 
   /*função para acessar API com fotos*/
-  created() {
-    this.$http
-      .get("v1/fotos")
-      .then((res) => res.json())
-      .then(
-        (fotos) => (this.fotos = fotos),
-        (err) => console.log(err)
-      );
-  },
+   created() {
+
+    this.service = new FotoService(this.$resource);
+
+    this.service.lista()
+      .then(fotos => this.fotos = fotos, err => this.mensagem = err.message);
+  }
 };
 </script>
 
