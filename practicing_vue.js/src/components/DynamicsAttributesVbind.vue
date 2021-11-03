@@ -14,7 +14,7 @@
 import Picture from "./Picture.vue";
 
 export default {
-  name: "AtributosDinamicosVbind",
+  name: "DynamicsAttributesVbind",
 
   components: {
     Picture,
@@ -22,7 +22,7 @@ export default {
 
   data() {
     return {
-      title: "4. Atributos Dinamicos v-bind",
+      title: "4. Dynamics Attributes Vbind v-bind",
       url_portfolio: "https://www.google.com",
     };
   },

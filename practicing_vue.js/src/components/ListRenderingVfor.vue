@@ -19,11 +19,11 @@
 
 <script>
 export default {
-  name: "RenderizacaoListasVfor",
+  name: "ListRenderingVfor",
   
   data() {
     return {
-      title: "6. Renderização de Listas v-for",
+      title: "6. List Rendering v-for",
       conceitos_vue: [
         "Data Binding",
         "Diretivas",

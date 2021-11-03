@@ -2,13 +2,16 @@
 
 ### Concepts Practiced:
 
-1. Input Data Binding;
-2. Life Cycle Hook;
-3. Diretivas v-if v-else;
-4. Atributos Dinâmicos v-bind
-5. Methods; 
-6. Renderização de Listas v-for;
-7. Eventos @click @submit;
+1. Input Data Binding: *form submission*;
+2. Life Cycle Hook:  *function created*;
+3. Directives v-if v-else v-show: *conditional*;
+4. Dynamic Attributes v-bind: *v-bind:href*;
+5. Methods: *functions*; 
+6. List Rendering v-for: *v-for in*;
+7. Events @click @submit: *form submission*;
+8. Multiple Events: *@click*;
+9. Using Props: *props*;
+10. Using Emit: *@emit*;
 
 
 ## Project setup

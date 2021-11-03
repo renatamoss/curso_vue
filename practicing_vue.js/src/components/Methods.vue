@@ -8,14 +8,10 @@
 
 
 <script>
-import Picture from "./Picture";
+
 
 export default {
-  name: "Info",
-
-  components: {
-    Picture,
-  },
+  name: "Methods",
 
   data() {
     return {

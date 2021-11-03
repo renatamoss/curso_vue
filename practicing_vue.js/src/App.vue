@@ -4,11 +4,14 @@
 
     <InputDataBinding />
     <LifeCycleHook />
-    <DiretivasVifVelse />
-    <AtributosDinamicosVbind />
+    <DirectivesVifVelseVshow />
+    <DynamicsAttributesVbind />
     <Methods />
-    <RenderizacaoListasVfor />
-    <EventosClickSubmit />
+    <ListRenderingVfor />
+    <EventsClickSubmit />
+    <MultipleEvents />
+    <UsingPropsDad />
+    <UsingEmitDad />
   </div>
 </template>
 
@@ -16,11 +19,14 @@
 <script>
 import InputDataBinding from "./components/InputDataBinding.vue";
 import LifeCycleHook from "./components/LifeCycleHook.vue";
-import DiretivasVifVelse from "./components/DiretivasVifVelse.vue";
-import AtributosDinamicosVbind from "./components/AtributosDinamicosVbind.vue";
+import DirectivesVifVelseVshow from "./components/DirectivesVifVelseVshow.vue";
+import DynamicsAttributesVbind from "./components/DynamicsAttributesVbind.vue";
 import Methods from "./components/Methods.vue";
-import RenderizacaoListasVfor from "./components/RenderizaçãoListasVfor.vue";
-import EventosClickSubmit from "./components/EventosClickSubmit.vue";
+import ListRenderingVfor from "./components/ListRenderingVfor.vue";
+import EventsClickSubmit from "./components/EventsClickSubmit.vue";
+import MultipleEvents from "./components/MultipleEvents.vue";
+import UsingPropsDad from "./components/UsingProps/UsingPropsDad.vue";
+import UsingEmitDad from "./components/UsingEmit/UsingEmitDad.vue";
 
 export default {
   name: "App",
@@ -28,11 +34,14 @@ export default {
   components: {
     InputDataBinding,
     LifeCycleHook,
-    DiretivasVifVelse,
-    AtributosDinamicosVbind,
+    DirectivesVifVelseVshow,
+    DynamicsAttributesVbind,
     Methods,
-    RenderizacaoListasVfor,
-    EventosClickSubmit,
+    ListRenderingVfor,
+    EventsClickSubmit,
+    MultipleEvents,
+    UsingPropsDad,
+    UsingEmitDad,
   },
 
   data() {

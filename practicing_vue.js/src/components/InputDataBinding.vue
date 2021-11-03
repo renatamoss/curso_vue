@@ -19,7 +19,7 @@ export default {
 
   data() {
     return {
-      title: "1. Input e Data Binding",
+      title: "1. Input and Data Binding",
       name: "",
       input_name: "",
     };
