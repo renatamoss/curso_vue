@@ -6,11 +6,11 @@ Projeto desenvolvido durante o curso **Curso Vue JS - SPA** onde foram aplicados
 ``` bash
 
 # install CLI -Command Line Interface do Vue
-npm install -g vue-cli@2.7.0
+npm install -g @vue/cli
 vue --version
 
 # new project template
-vue init webpack-simple nome_projeto
+vue create my-project
  
 # install dependencies
 npm install
@@ -109,5 +109,4 @@ Nos casos em que não se deseja o armazenamento em cache, usa-se um método;
 ![img_vuejs](vue.png)
 
 
-*Curso de Vue.js parte 1: Construindo Single Page Applications*
 *Trilha Avance em front-end construindo Single Page Applications com mais produtividade.*
