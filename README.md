@@ -11,6 +11,8 @@ vue --version
 
 # new project template
 vue create my-project
+# OR inside the folder
+vue create .
  
 # install dependencies
 npm install
