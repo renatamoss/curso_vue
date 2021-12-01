@@ -1,8 +1,7 @@
 <template>
 <div id="bind-attribute">
   <span v-bind:title="message">
-    Hover your mouse over me for a few seconds to see my dynamically bound
-    title!
+    Praticando Vue!
     {{ message }}
   </span>
 </div>
@@ -13,7 +12,7 @@
 export default{
  data() {
     return {
-      message: 'You loaded this page on ' + new Date().toLocaleString()
+      message: 'Nesta data estou praticando Vue: ' + new Date().toLocaleString()
     }
   } 
 }
