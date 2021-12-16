@@ -2,7 +2,7 @@
 <div id="bind-attribute">
   <span v-bind:title="message">
     Praticando Vue!
-    {{ message }}
+    {{ message }}  {{ data }}
   </span>
 </div>
 </template>
@@ -12,7 +12,8 @@
 export default{
  data() {
     return {
-      message: 'Nesta data estou praticando Vue: ' + new Date().toLocaleString()
+      message: 'Nesta data estou praticando Vue: ',
+      data:  new Date().toLocaleString(),
     }
   } 
 }

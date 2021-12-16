@@ -1,5 +1,12 @@
 <template>
   <div>
+    <div>
+      <p>
+        Uma invocação de método sempre executará a função sempre que ocorrer uma
+        nova renderização.
+      </p>
+    </div>
+
     <div id="counter">Counter: {{ counter }}</div>
 
     <button @click="increment">Soma Number</button>
@@ -23,15 +30,14 @@ export default {
       this.number++;
     },
     formatDate() {
-      const date = "01/12/2021"
+      const date = new Date().toLocaleString();
       return date;
-    }
+    },
   },
   mounted() {
     setInterval(() => {
       this.counter++;
     }, 1000);
   },
-  
 };
 </script>

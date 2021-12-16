@@ -1,6 +1,6 @@
 <template>
-  <div id="two-way-binding">
-    <p>{{ message.split('').reverse().join('') }}</p>
+  <div>
+    <p>{{ reverse() }}</p>
     <input v-model="message" />
   </div>
 </template>
@@ -10,8 +10,13 @@
 export default {
   data() {
     return {
-      message: "Praticando Vue!",
+      message: "Praticando Vue! :esreveR",
     };
+  },
+  methods: {
+    reverse() {
+      return this.message.split("").reverse().join("");
+    },
   },
 };
 </script>

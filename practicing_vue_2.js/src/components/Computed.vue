@@ -1,10 +1,18 @@
 <template>
   <div>
+    <div>
+      <p>
+        Propriedades calculadas são armazenadas em cache com base em suas
+        dependências reativas. Uma propriedade computada será reavaliada apenas
+        quando algumas de suas dependências reativas forem alteradas.
+      </p>
+    </div>
     <p>Cores disponíveis:</p>
     <ul v-for="(cor, index) in cores" :key="index">
       <li>{{ cor }}</li>
     </ul>
     <span>{{ coresFlores }}</span>
+    <h1>{{ fullName }}</h1>
   </div>
 </template>
             
@@ -14,6 +22,8 @@ export default {
   data() {
     return {
       cores: ["verde", "amarelo", "azul"],
+      firstName: "Renata",
+      lastName: "Marques",
     };
   },
   computed: {
@@ -21,6 +31,10 @@ export default {
       return this.cores.length > 0
         ? "Essas são as cores das flores"
         : "Não tem flores";
+    },
+
+    fullName() {
+      return this.firstName + " " + this.lastName;
     },
   },
 };
@@ -30,5 +44,3 @@ export default {
 <style lang= scoped>
 </style>
 
-//propriedades calculadas são armazenadas em cache com base em suas dependências reativas. Uma propriedade computada será reavaliada apenas quando algumas de suas dependências reativas forem alteradas.
-//Em comparação, uma invocação de método sempre executará a função sempre que ocorrer uma nova renderização.
