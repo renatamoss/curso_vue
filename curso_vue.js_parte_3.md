@@ -1,13 +1,9 @@
 ## Conceitos estudados: Protegendo recursos com autenticação e VueX
  
-### 1 - Diretivas
- Diretivas permitem isolar um código que pode ser aplicado em mais de um componente.
-
-
-
-```
-
-```
+### 1 - Axios
+ Biblioteca que encapsula todas as chamadas ao servidor. 
+ ```npm install axios --save```
+* na tag <script> fazer o import da biblioteca: import axios from axios;
 
 
 

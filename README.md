@@ -1,7 +1,4 @@
-# Projeto Mypics
-Projeto desenvolvido durante o curso **Curso Vue JS - SPA** onde foram aplicados os conceitos estudados.
-
-## Build Setup
+# Build Setup
 
 ``` bash
 
@@ -17,15 +14,14 @@ vue create .
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
-
 # build for production with minification
 npm run build
 
 ```
 
-## Conceitos estudados: Curso Vue JS - SPA
+## Conceitos estudados: Trilha Formação Vue JS Alura
+
+### Curso Vue JS - SPA - parte 1
 
 ##### 1 - Babel, Webpack e geração do bundle;
 ##### 2 - Componentes declarados em Single File Templates: template, script e style;
@@ -56,6 +52,22 @@ npm run build
 ##### 27 - Disparando eventos nativos: o modificador *native* no evento clique;
 ##### 28 - Eventos customizados: a lógica de execução deve ser feita no elemento pai: ```this.$emit```.
 
+### Curso Vue JS - SPA - parte 2
+
+##### 29 - Diretivas: permitem isolar um código que pode ser aplicado em mais de um componente.;
+##### 30 - Argumentos Vs modificadores;
+##### 31 - Associação de dados: ```<input @input="usuario.login = $event.target.value">```;
+##### 32 - Two-way data binding: ```<input v-model="usuario.login">```;
+##### 33 - O padrão REST;
+##### 34 - O módulo VeeValidate;
+##### 35 - Gerando arquivos para distribuir: ```npm run build``` ;
+##### 36 - Estilizando nosso componentes com SASS.
+
+### Curso Vue JS - SPA - parte 3
+
+
+
+### Conceitos iniciais:
 
 ## Diretivas
 ### *v-bind* diretiva é usada para atualizar reativamente um atributo HTML
@@ -96,7 +108,6 @@ npm run build
 <meu-botao tipo="button" rotulo="REMOVER" @botaoAtivado="remove(foto, $event)" :confirmacao="true" estilo="padrao"/></meu-painel>
 # botaoAtivado: escuta click chama methods;
 ```
-
 
 ### Estrutura do Script
 * **props:** envia valor para o componente, porém não é possível modificar seus valores, eles são valores “somente leitura”;
