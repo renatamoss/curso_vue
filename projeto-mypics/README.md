@@ -1,4 +1,5 @@
 # Build Setup
+``` bash
 
 # install dependencies
 npm install
@@ -8,3 +9,5 @@ npm run dev
 
 # backend api_projeto_mypics /localhost:3000
 npm start
+
+```
