@@ -23,8 +23,9 @@ export default {
       gerentes: [],
     };
   },
-  //busca os gerente no banco qdo monta o componente
+
   mounted() {
+    //busca os gerente no banco qdo monta o componente
     this.$http
       .get("gerentes")
       .then((response) => {
@@ -33,8 +34,13 @@ export default {
       })
       .catch((erro) => console.log(erro));
   },
+  //se não logado direciona para página login(nã faz req)
+  beforeRouterEnter(to, from, next) {
+    if (!this.$store.state.token) {
+      next({ name: "login" });
+    }
+    next();
+  },
 };
 </script>
 
-<style>
-</style>

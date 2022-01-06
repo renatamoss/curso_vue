@@ -2,15 +2,15 @@
   <div class="container">
     <h1>Novo Usuario</h1>
     <form @submit.prevent="enviarFormulario">
-      <div class="form.group">
+      <div class="form.group form">
         <label for="nome">Nome</label>
         <input type="text" class="form-control" v-model="usuario.nome" />
       </div>
-      <div class="form.group">
+      <div class="form.group form">
         <label for="email">E-mail</label>
         <input type="email" class="form-control" v-model="usuario.email" />
       </div>
-      <div class="form.group">
+      <div class="form.group form">
         <label for="senha">Senha</label>
         <input type="password" class="form-control" v-model="usuario.senha" />
       </div>
@@ -21,7 +21,6 @@
             
             
 <script>
-
 export default {
   props: {},
   components: {},
@@ -50,5 +49,11 @@ export default {
   },
 };
 </script>
+
+<style>
+.form {
+  margin: 1rem 0;
+}
+</style>
             
             

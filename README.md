@@ -63,11 +63,18 @@ npm run build
 ##### 35 - Gerando arquivos para distribuir: ```npm run build``` ;
 ##### 36 - Estilizando nosso componentes com SASS.
 
-### Curso Vue JS - SPA - parte 3
+### Curso Vue JS - Protegendo recursos com autenticação e VueX
+
+##### 37 - Axios
+##### 38 - LocalStorage
+##### 39 - VUEX
+##### 40 -  Guardião global
+##### 41 - Rota Preguiçosa
+##### 42 - Mixins
+##### 43 - Getters
 
 
-
-### Conceitos iniciais:
+### Conceitos Base:
 
 ## Diretivas
 ### *v-bind* diretiva é usada para atualizar reativamente um atributo HTML
@@ -122,4 +129,4 @@ Nos casos em que não se deseja o armazenamento em cache, usa-se um método;
 ![img_vuejs](vue.png)
 
 
-*Trilha Avance em front-end construindo Single Page Applications com mais produtividade.*
+
