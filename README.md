@@ -65,13 +65,13 @@ npm run build
 
 ### Curso Vue JS - Protegendo recursos com autenticação e VueX
 
-##### 37 - Axios
+##### 37 - Axios: ```npm install axios --save```;
 ##### 38 - LocalStorage
-##### 39 - VUEX
-##### 40 -  Guardião global
-##### 41 - Rota Preguiçosa
-##### 42 - Mixins
-##### 43 - Getters
+##### 39 - VUEX: ```npm install vuex -- save```;
+##### 40 -  Guardião global: Deve-se fazer isso por meio do **view router**;
+##### 41 - Rota Preguiçosa: ```component: () => import(/* webpackChunkName: "registrar" */ '../views/NovoUsuario.vue')```;
+##### 42 - Mixins: flexibilidade para encapsular e compartilhar comportamentos;
+##### 43 - Getters.
 
 
 ### Conceitos Base:
