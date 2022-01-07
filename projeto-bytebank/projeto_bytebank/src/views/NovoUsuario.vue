@@ -35,7 +35,8 @@ export default {
   },
 
   methods: {
-    //capturando dados do usuário
+    //capturando dados do usuário,
+    //Axios/http: fazendo o post no servidor
     //colocando na rota de login: this.$router.push({ name: "login" });
     enviarFormulario() {
       this.$http

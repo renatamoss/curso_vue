@@ -71,7 +71,7 @@ npm run build
 ##### 40 -  Guardião global: Deve-se fazer isso por meio do **view router**;
 ##### 41 - Rota Preguiçosa: ```component: () => import(/* webpackChunkName: "registrar" */ '../views/NovoUsuario.vue')```;
 ##### 42 - Mixins: flexibilidade para encapsular e compartilhar comportamentos;
-##### 43 - Getters.
+##### 43 - Getters: retornando um estado do usuário.
 
 
 ### Conceitos Base:

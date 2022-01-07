@@ -1,6 +1,6 @@
-## preview
+# Preview
 
-[![projeto-bytebank](https://github.com/renatamoss/))
+![projeto-bytebank](https://github.com/renatamoss/curso_vue/blob/main/projeto-bytebank/ByteBank.gif?raw=true)
 # Build Setup Projecto
 ``` bash
 
@@ -15,5 +15,6 @@ npm run start-auth
 
 ```
 *https://github.com/viniciosneves/fake-rest-api*
+
 
 

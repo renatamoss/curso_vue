@@ -1,15 +1,17 @@
 import axios from 'axios'
 import store from '@/store'
 
+//criando uma instância do axios variável http
 const http = axios.create({
     baseURL: 'http://localhost:8000/',
     headers: {
-        'Accept': 'applicaton/json',
+        'Accept': 'application/json',
         'Content': 'application/json'
     }
 })
 
-//enviando o token para o servidor para futuros logins
+//interceptors: servidor identificar a permissão
+//store.state.token: enviando o token para o servidor para futuros logins
 http.interceptors.request.use(function (config) {
     const token = store.state.token
     if (token) {

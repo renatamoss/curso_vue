@@ -4,7 +4,7 @@ import http from '@/http'
 
 Vue.use(Vuex)
 
-const estado = {
+const state = {
     token: null,
     usuario: {}
 }
@@ -45,7 +45,7 @@ const getters = {
 }
 
 export default new Vuex.Store({
-    state: estado,
+    state,
     mutations,
     actions,
     getters

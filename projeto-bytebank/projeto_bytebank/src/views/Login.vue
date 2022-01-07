@@ -31,7 +31,10 @@ export default {
     };
   },
   methods: {
-    //localStorage: armazenando token
+  //store/vuex/state: armazena o usuário+token
+  //store/actions: dispatch("efetuarLogin", this.usuario)
+  //direciona usuário para página gerentes
+  //ou dispara mensagem de erro
     efetuarLogin() {
       this.$store
         .dispatch("efetuarLogin", this.usuario)

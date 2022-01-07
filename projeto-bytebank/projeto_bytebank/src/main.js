@@ -5,12 +5,12 @@ import store from './store'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-//criando uma instancia do axios pasta src/http
+//criando uma instancia global do axios pasta src/http
 import http from "@/http"
 
 Vue.config.productionTip = false
 
-//inserindo como objeto global a instância do axios no http
+//inserindo como objeto global a instância do axios/http
 Vue.prototype.$http = http
 
 new Vue({

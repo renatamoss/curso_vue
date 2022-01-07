@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import { logoutMixin } from "@/mixins";
+import { efetuarLogout } from "@/mixins";
 export default {
   name: "home",
-  mixins: [logoutMixin],
+  mixins: [efetuarLogout],
 };
 </script>
