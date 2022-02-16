@@ -1,7 +1,7 @@
 <template>
   <ol>
     <li>
-     {{todo.id}} - {{ todo.text }}
+      {{ todo.text }}
     </li>
   </ol>
 </template>
@@ -16,11 +16,5 @@ export default {
   },
 };
 </script>
-
-<style>
-ol li {
-  list-style: circle;
-}
-</style>
             
             
